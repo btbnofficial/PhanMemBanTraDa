@@ -43,3 +43,21 @@ create table Account
 	Password varchar(100) not null,
 	Type int not null --1: admin, 0: staff
 );
+
+insert into dbo.Account(Username,Password,Type)
+values('btbncsgo','Password',1)
+
+insert into dbo.Account(Username,Password,Type)
+values('staff1','staff1',0)
+select * from Account
+
+create procedure usp_getAccountByUsername
+(
+	@username varchar(100)
+)
+as
+begin
+	Select * from Account where Username = @username
+end
+
+execute usp_getAccountByUsername 'btbncsgo'

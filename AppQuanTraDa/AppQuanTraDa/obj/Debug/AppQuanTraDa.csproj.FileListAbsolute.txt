@@ -1,0 +1,12 @@
+D:\PhanMemBanTraDa-master\PhanMemBanTraDa-master\PhanMemBanTraDa\AppQuanTraDa\AppQuanTraDa\bin\Debug\AppQuanTraDa.exe.config
+D:\PhanMemBanTraDa-master\PhanMemBanTraDa-master\PhanMemBanTraDa\AppQuanTraDa\AppQuanTraDa\bin\Debug\AppQuanTraDa.exe
+D:\PhanMemBanTraDa-master\PhanMemBanTraDa-master\PhanMemBanTraDa\AppQuanTraDa\AppQuanTraDa\bin\Debug\AppQuanTraDa.pdb
+D:\PhanMemBanTraDa-master\PhanMemBanTraDa-master\PhanMemBanTraDa\AppQuanTraDa\AppQuanTraDa\obj\Debug\AppQuanTraDa.csprojAssemblyReference.cache
+D:\PhanMemBanTraDa-master\PhanMemBanTraDa-master\PhanMemBanTraDa\AppQuanTraDa\AppQuanTraDa\obj\Debug\AppQuanTraDa.frmLogin.resources
+D:\PhanMemBanTraDa-master\PhanMemBanTraDa-master\PhanMemBanTraDa\AppQuanTraDa\AppQuanTraDa\obj\Debug\AppQuanTraDa.Properties.Resources.resources
+D:\PhanMemBanTraDa-master\PhanMemBanTraDa-master\PhanMemBanTraDa\AppQuanTraDa\AppQuanTraDa\obj\Debug\AppQuanTraDa.csproj.GenerateResource.cache
+D:\PhanMemBanTraDa-master\PhanMemBanTraDa-master\PhanMemBanTraDa\AppQuanTraDa\AppQuanTraDa\obj\Debug\AppQuanTraDa.exe
+D:\PhanMemBanTraDa-master\PhanMemBanTraDa-master\PhanMemBanTraDa\AppQuanTraDa\AppQuanTraDa\obj\Debug\AppQuanTraDa.pdb
+D:\PhanMemBanTraDa-master\PhanMemBanTraDa-master\PhanMemBanTraDa\AppQuanTraDa\AppQuanTraDa\obj\Debug\AppQuanTraDa.frmTableManager.resources
+D:\PhanMemBanTraDa-master\PhanMemBanTraDa-master\PhanMemBanTraDa\AppQuanTraDa\AppQuanTraDa\obj\Debug\AppQuanTraDa.frmAccountProfile.resources
+D:\PhanMemBanTraDa-master\PhanMemBanTraDa-master\PhanMemBanTraDa\AppQuanTraDa\AppQuanTraDa\obj\Debug\AppQuanTraDa.frmAdmin.resources
