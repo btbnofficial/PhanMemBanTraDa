@@ -51,6 +51,12 @@ insert into dbo.Account(Username,Password,Type)
 values('staff1','staff1',0)
 select * from Account
 
+alter procedure usp_GetListAccount
+as
+begin
+	Select Username,Type from Account
+end
+
 create procedure usp_getAccountByUsername
 (
 	@username varchar(100)
@@ -61,3 +67,5 @@ begin
 end
 
 execute usp_getAccountByUsername 'btbncsgo'
+
+select * from Account

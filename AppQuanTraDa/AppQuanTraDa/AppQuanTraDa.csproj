@@ -70,6 +70,8 @@
     <Compile Include="frmTableManager.Designer.cs">
       <DependentUpon>frmTableManager.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\Account.cs" />
+    <Compile Include="Model\AccountBusiness.cs" />
     <Compile Include="Model\DataProvider.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

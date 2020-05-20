@@ -22,14 +22,7 @@ namespace AppQuanTraDa
 
         public void LoadAccountList()
         {
-            SqlParameter[] pars = new SqlParameter[1];
-
-            pars[0] = new SqlParameter("@username", SqlDbType.VarChar, 100);
-            pars[0].Value = "btbncsgo";
-
-            string query = "execute usp_getAccountByUsername";
-
-            dtgAccount.DataSource = DataProvider.GetList(query,pars);
+            dtgAccount.DataSource = AccountBusiness.LayDanhSachAccount();
         }
     }
 }
