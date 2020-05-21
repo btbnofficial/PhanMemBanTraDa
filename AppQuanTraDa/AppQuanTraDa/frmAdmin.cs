@@ -18,11 +18,17 @@ namespace AppQuanTraDa
         {
             InitializeComponent();
             LoadAccountList();
+            LoadTableFoodList();
         }
 
         public void LoadAccountList()
         {
             dtgAccount.DataSource = AccountBusiness.LayDanhSachAccount();
+        }
+
+        public void LoadTableFoodList()
+        {
+            dtgTableFood.DataSource = TableFoodBusiness.GetListTableFood();
         }
     }
 }

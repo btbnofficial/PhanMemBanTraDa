@@ -66,6 +66,7 @@
             // 
             // btnExit
             // 
+            this.btnExit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnExit.Location = new System.Drawing.Point(226, 104);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(75, 23);
@@ -80,6 +81,7 @@
             this.txtAccount.Name = "txtAccount";
             this.txtAccount.Size = new System.Drawing.Size(192, 20);
             this.txtAccount.TabIndex = 4;
+            this.txtAccount.Text = "btbncsgo";
             // 
             // txtPassword
             // 
@@ -87,6 +89,7 @@
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.Size = new System.Drawing.Size(192, 20);
             this.txtPassword.TabIndex = 5;
+            this.txtPassword.Text = "password";
             this.txtPassword.UseSystemPasswordChar = true;
             // 
             // frmLogin

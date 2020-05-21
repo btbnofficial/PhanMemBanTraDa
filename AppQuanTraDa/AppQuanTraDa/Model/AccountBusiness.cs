@@ -48,6 +48,55 @@ namespace AppQuanTraDa.Model
             return lstAccount;
         }
 
-        
+        public static bool Login(string username, string password)
+        {
+            List<Account> lstAccout = new List<Account>();
+            SqlParameter[] pars = new SqlParameter[2];
+            pars[0] = new SqlParameter("@Username", SqlDbType.VarChar, 100);
+            pars[0].Value = username;
+
+            pars[1] = new SqlParameter("@Password", SqlDbType.VarChar, 100);
+            pars[1].Value = password;
+
+            SqlConnection conn = new SqlConnection(DataProvider.connectionString);
+
+            try
+            {
+                conn.Open();
+
+                SqlCommand comm = new SqlCommand();
+                comm.Connection = conn;
+                comm.CommandType = CommandType.StoredProcedure;
+                comm.CommandText = "usp_AccountLogin";
+                comm.Parameters.AddRange(pars);
+
+                Account objAccount;
+                SqlDataReader reader = comm.ExecuteReader();
+                if(reader.Read())
+                {
+                    objAccount = new Account();
+                    objAccount.Username = reader.GetString(reader.GetOrdinal("Username"));
+                    objAccount.Password = reader.GetString(reader.GetOrdinal("Password"));
+                    objAccount.Type = reader.GetInt32(reader.GetOrdinal("Type"));
+                    lstAccout.Add(objAccount);
+                }
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                conn.Close();
+            }
+            if(lstAccout.Count>0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

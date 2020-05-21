@@ -69,3 +69,51 @@ end
 execute usp_getAccountByUsername 'btbncsgo'
 
 select * from Account
+
+insert into dbo.TableFood(Name) values (N'Bàn 7')
+select * from TableFood
+
+create procedure usp_AccountLogin
+(
+	@Username varchar(100),
+	@Password varchar(100)
+)
+as
+begin
+	Select * from Account where Username = @Username and Password = @Password;
+end
+
+execute usp_AccountLogin 'btbncsgo','Password'
+
+create procedure usp_GetTableList
+as
+begin
+	Select * from TableFood
+end
+
+select * from Food
+select * from Bill
+select * from BillDetail
+
+insert into dbo.Food(Name,Price) values(N'Nước chanh', 10000);
+insert into dbo.Food(Name,Price) values(N'Nước vối', 4000);
+insert into dbo.Food(Name,Price) values(N'Nước sấu', 8000);
+insert into dbo.Food(Name,Price) values(N'Red Bull', 12000);
+
+insert into dbo.Bill(DateCheckIn,DateCheckOut,TableId,Status) values(getDate(),getDate(),1,0);
+insert into dbo.Bill(DateCheckIn,DateCheckOut,TableId,Status) values(getDate(),getDate(),3,0);
+insert into dbo.Bill(DateCheckIn,DateCheckOut,TableId,Status) values(getDate(),getDate(),4,0)
+
+insert into dbo.BillDetail(BillId, FoodId, count) values(1,1,4);
+insert into dbo.BillDetail(BillId, FoodId, count) values(2,2,3);
+insert into dbo.BillDetail(BillId, FoodId, count) values(3,4,10);
+insert into dbo.BillDetail(BillId, FoodId, count) values(3,3,2);
+
+select * from Bill where TableId = 3 and status = 0;
+
+select * from BillDetail where BillId = 2;
+
+select * from TableFood
+
+select Food.Name as FoodName, BillDetail.Count as Count, Food.Price as Price, Food.Price*BillDetail.count as TotalPrice from BillDetail, Bill, Food 
+where BillDetail.BillId = Bill.Id and BillDetail.FoodId = Food.Id and Bill.TableId = 3

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AppQuanTraDa.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -32,10 +33,24 @@ namespace AppQuanTraDa
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            frmTableManager f = new frmTableManager();
-            this.Hide();
-            f.ShowDialog();
-            this.Show();
+            string username = txtAccount.Text;
+            string password = txtPassword.Text;
+            if(Login(username,password))
+            {
+                frmTableManager f = new frmTableManager();
+                this.Hide();
+                f.ShowDialog();
+                this.Show();
+            }
+            else
+            {
+                MessageBox.Show("Sai ten tai khoan hoac mat khau!", "Thong bao!");
+            }
+        }
+
+        private bool Login(string username, string password)
+        {
+            return AccountBusiness.Login(username, password);
         }
     }
 }
