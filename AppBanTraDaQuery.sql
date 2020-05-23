@@ -115,5 +115,84 @@ select * from BillDetail where BillId = 2;
 
 select * from TableFood
 
-select Food.Name as FoodName, BillDetail.Count as Count, Food.Price as Price, Food.Price*BillDetail.count as TotalPrice from BillDetail, Bill, Food 
+select Food.Name as FoodName,Food.Price as Price, BillDetail.Count as Count,  Food.Price*BillDetail.count as TotalPrice from BillDetail, Bill, Food 
 where BillDetail.BillId = Bill.Id and BillDetail.FoodId = Food.Id and Bill.TableId = 3
+
+Select * from Food
+
+create procedure usp_AddBill
+(
+	@TableId int
+)
+as
+begin
+	insert into dbo.Bill(DateCheckIn,DateCheckOut,TableId,Status) values (getDate(),getDate(), @TableId, 0)
+end	
+
+
+--nếu đã tồn tại cái Bill của bàn này và chưa có món này, thì thêm mới BillDetail, còn nếu đã có món ăn + bàn này thì chỉ cộng thêm/giảm bớt món ăn
+alter procedure usp_AddBillDetail
+(
+	@BillId int,
+	@FoodId int,
+	@Count int
+)
+as
+begin
+	declare @isExistBillDetail int;
+	declare @FoodCount int = 1
+	select @isExistBillDetail = Id, @FoodCount = BillDetail.count from BillDetail where BillId = @BillId and FoodId = @FoodId
+	if(@isExistBillDetail>0)
+	begin
+		declare @newCount int = @FoodCount + @Count
+		--Nếu số lượng thức ăn của BillDeTail là lớn hơn 0 thì cập nhật, còn nếu = 0 thì xóa BillDetail đó đi
+		if(@newCount>0)
+		begin
+			update BillDetail set count = @FoodCount + @Count where BillId = @BillId and FoodId = @FoodId
+		end
+		else
+		begin
+			delete from BillDetail where BillId = @BillId and FoodId = @FoodId
+		end
+	end
+	else
+	begin
+		insert into dbo.BillDetail(BillId,FoodId,count) values (@BillId,@FoodId,@Count);
+	end
+end
+
+alter procedure usp_CheckOutBill
+(
+	@BillId int
+)
+as
+begin
+	declare @tableId int;
+	select @tableId = TableFood.Id from TableFood, Bill where Bill.Id = @BillId and Bill.TableId = @tableId;
+	delete from BillDetail where BillDetail.BillId = @BillId;
+	delete from Bill where Id = @BillId;
+	
+end
+
+select * from TableFood
+
+alter procedure usp_ChangeTableStatus
+(
+	@TableFoodId int
+)
+as
+begin
+	update dbo.TableFood set TableFood.Status = N'Có Người' where TableFood.Id = @TableFoodId
+end
+
+create procedure usp_ChangeTableStatusToEmpty
+(
+	@TableFoodId int
+)
+as
+begin
+	update dbo.TableFood set TableFood.Status = N'Trống' where TableFood.Id = @TableFoodId
+end
+
+select * from Bill
+

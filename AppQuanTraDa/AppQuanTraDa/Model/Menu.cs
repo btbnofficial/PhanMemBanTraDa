@@ -10,13 +10,13 @@ namespace AppQuanTraDa.Model
     public class Menu
     {
         private string foodName;
-        private int count;
         private double price;
+        private int count;
         private double totalPrice;
 
         public Menu() { }
 
-        public Menu(string foodName, int count,double price, double totalPrice)
+        public Menu(string foodName,double price, int count, double totalPrice)
         {
             this.FoodName = foodName;
             this.Count = count;
@@ -27,8 +27,8 @@ namespace AppQuanTraDa.Model
         public Menu(DataRow row)
         {
             this.FoodName = row["FoodName"].ToString();
-            this.Count = (int)row["Count"];
             this.Price = Double.Parse(row["Price"].ToString());
+            this.Count = (int)row["Count"];
             this.TotalPrice = Double.Parse(row["TotalPrice"].ToString());
         }
 

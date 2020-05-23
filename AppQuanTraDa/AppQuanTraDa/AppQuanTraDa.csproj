@@ -78,6 +78,7 @@
     <Compile Include="Model\BillDetailBusiness.cs" />
     <Compile Include="Model\DataProvider.cs" />
     <Compile Include="Model\Food.cs" />
+    <Compile Include="Model\FoodBusiness.cs" />
     <Compile Include="Model\Menu.cs" />
     <Compile Include="Model\MenuBusiness.cs" />
     <Compile Include="Model\TableFood.cs" />

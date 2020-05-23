@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,7 +15,7 @@ namespace AppQuanTraDa.Model
         /// </summary>
         /// <param name="tableFoodId"></param>
         /// <returns></returns>
-        /*public static int GetUncheckedBillIdFromTableId(int tableFoodId)
+        public static int GetUncheckedBillIdFromTableId(int tableFoodId)
         {
             int billId = -1; ;
             string query = "select * from Bill where TableId = " + tableFoodId + "and status = 0;";
@@ -32,6 +33,60 @@ namespace AppQuanTraDa.Model
                 }
                 return billId;
             }
-        }*/
+        }
+
+        public static void AddBill(int tableId)
+        {
+            SqlParameter[] pars = new SqlParameter[1];
+            pars[0] = new SqlParameter("TableId", SqlDbType.Int);
+            pars[0].Value = tableId;
+
+            DataProvider.ThucHien("usp_AddBill", pars, true);
+        }
+
+        public static List<Bill> GetListBill()
+        {
+            List<Bill> lstBill = new List<Bill>();
+
+            DataTable dt = DataProvider.GetList("Select * from Bill", null, false);
+
+            foreach (DataRow row in dt.Rows)
+            {
+                Bill objBill = new Bill(row);
+                lstBill.Add(objBill);
+            }
+
+            return lstBill;
+        }
+
+        public static int GetMaxBillId()
+        {
+            int max = 0;
+
+            List<Bill> lstBill = new List<Bill>();
+
+            DataTable dt = DataProvider.GetList("Select * from Bill", null, false);
+
+            foreach (DataRow row in dt.Rows)
+            {
+                Bill objBill = new Bill(row);
+
+                if(max<objBill.Id)
+                {
+                    max = objBill.Id;
+                }
+            }
+
+            return max;
+        }
+
+        public static void CheckOut(int billId)
+        {
+            SqlParameter[] pars = new SqlParameter[1];
+            pars[0] = new SqlParameter("@BillId", SqlDbType.Int);
+            pars[0].Value = billId;
+
+            DataProvider.ThucHien("usp_CheckOutBill", pars, true);
+        }
     }
 }

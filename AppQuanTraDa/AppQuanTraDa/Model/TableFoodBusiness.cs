@@ -59,5 +59,23 @@ namespace AppQuanTraDa.Model
              */
             #endregion
         }
+
+        public static void ChangeTableStatus(int tableId)
+        {
+            SqlParameter[] parameters = new SqlParameter[1];
+            parameters[0] = new SqlParameter("@TableFoodId", SqlDbType.Int);
+            parameters[0].Value = tableId;
+
+            DataProvider.ThucHien("usp_ChangeTableStatus", parameters, true);
+        }
+
+        public static void ChangeTableStatusToEmpty(int tableId)
+        {
+            SqlParameter[] parameters = new SqlParameter[1];
+            parameters[0] = new SqlParameter("@TableFoodId", SqlDbType.Int);
+            parameters[0].Value = tableId;
+
+            DataProvider.ThucHien("usp_ChangeTableStatusToEmpty", parameters, true);
+        }
     }
 }

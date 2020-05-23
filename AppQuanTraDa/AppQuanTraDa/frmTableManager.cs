@@ -18,11 +18,14 @@ namespace AppQuanTraDa
         {
             InitializeComponent();
             LoadTableList();
+            LoadFoodList();
         }
 
         #region Methods
         private void LoadTableList()
         {
+            flpTable.Controls.Clear();
+
             List<TableFood> lstTableFood = TableFoodBusiness.GetListTableFood();
 
             foreach(TableFood tableFood in lstTableFood)
@@ -62,12 +65,19 @@ namespace AppQuanTraDa
             txtTotalPrice.Text = totalPrice.ToString();
         }
 
+        private void LoadFoodList()
+        {
+            cboFood.DataSource = FoodBusiness.GetFoodList();
+            cboFood.DisplayMember = "Name";
+        }
+
         #endregion
 
         #region Events
         private void btn_Click(object sender, EventArgs e)
         {
             int tableId = ((sender as Button).Tag as TableFood).Id;
+            lsvBill.Tag = (sender as Button).Tag;
             ShowBill(tableId);
         }
 
@@ -96,6 +106,53 @@ namespace AppQuanTraDa
             f.ShowDialog();
             this.Show();
         }
+
+        private void btnAddFood_Click(object sender, EventArgs e)
+        {
+            TableFood tableFood = lsvBill.Tag as TableFood;
+
+            int billId = BillBusiness.GetUncheckedBillIdFromTableId(tableFood.Id);
+            int foodId = (cboFood.SelectedItem as Food).Id;
+
+            //Neu Bill k co Bill nao o ban nay, them Bill moi
+            if(billId == -1)
+            {
+                BillBusiness.AddBill(tableFood.Id);
+                BillDetailBusiness.AddBillDetail(BillBusiness.GetMaxBillId(), foodId, (int)nmFoodCount.Value);
+                TableFoodBusiness.ChangeTableStatus(tableFood.Id);
+                LoadTableList();
+            }
+            //Neu bill da ton tai thì chi thêm mới BillDetail
+            else
+            {
+                BillDetailBusiness.AddBillDetail(billId, foodId, (int)nmFoodCount.Value);
+            }
+            ShowBill(tableFood.Id);
+        }
+        //nut thanh toan
+        private void button4_Click(object sender, EventArgs e)
+        {
+            //Xác định Bill hiện tại dựa vào table hiện tại
+            //Nếu không có Bill thì k thanh toán
+            //Nếu có Bill thì hỏi là có thực sự muốn thanh toán
+            TableFood tableFood = lsvBill.Tag as TableFood;
+
+            int billId = BillBusiness.GetUncheckedBillIdFromTableId(tableFood.Id);
+
+            if(billId != -1)//Neu co Bill
+            {
+                double totalPrice = Double.Parse(txtTotalPrice.Text) - Double.Parse(txtTotalPrice.Text) * (int)nmDiscount.Value / 100;
+                if (MessageBox.Show("Ban thuc su muon thanh toan cho " + tableFood.Name+" \n Tổng giá: "+totalPrice, "Thong bao", MessageBoxButtons.OKCancel) == DialogResult.OK)
+                {
+                    BillBusiness.CheckOut(billId);
+                    TableFoodBusiness.ChangeTableStatusToEmpty(tableFood.Id);
+                    ShowBill(tableFood.Id);
+                    LoadTableList();
+                }
+            }
+        }
         #endregion
+
+        
     }
 }

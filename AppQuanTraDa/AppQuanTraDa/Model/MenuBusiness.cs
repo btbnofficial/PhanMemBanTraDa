@@ -13,7 +13,7 @@ namespace AppQuanTraDa.Model
         {
             List<Menu> lstMenu = new List<Menu>();
 
-            string query = "select Food.Name as FoodName, BillDetail.Count as Count, Food.Price as Price, Food.Price*BillDetail.count as TotalPrice from BillDetail, Bill, Food " +
+            string query = "select Food.Name as FoodName, Food.Price as Price, BillDetail.Count as Count,  Food.Price*BillDetail.count as TotalPrice from BillDetail, Bill, Food " +
                 "where BillDetail.BillId = Bill.Id and BillDetail.FoodId = Food.Id and Bill.TableId = " + tableId;
 
             DataTable dt = DataProvider.GetList(query, null, false);
