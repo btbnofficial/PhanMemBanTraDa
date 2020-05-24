@@ -52,11 +52,35 @@
     <Compile Include="frmAccountProfile.Designer.cs">
       <DependentUpon>frmAccountProfile.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmAddFood.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddFood.Designer.cs">
+      <DependentUpon>frmAddFood.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAddTable.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddTable.Designer.cs">
+      <DependentUpon>frmAddTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmAdmin.Designer.cs">
       <DependentUpon>frmAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmEditFood.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEditFood.Designer.cs">
+      <DependentUpon>frmEditFood.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmFoodInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmFoodInfo.Designer.cs">
+      <DependentUpon>frmFoodInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
@@ -88,8 +112,20 @@
     <EmbeddedResource Include="frmAccountProfile.resx">
       <DependentUpon>frmAccountProfile.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmAddFood.resx">
+      <DependentUpon>frmAddFood.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAddTable.resx">
+      <DependentUpon>frmAddTable.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmAdmin.resx">
       <DependentUpon>frmAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEditFood.resx">
+      <DependentUpon>frmEditFood.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmFoodInfo.resx">
+      <DependentUpon>frmFoodInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>

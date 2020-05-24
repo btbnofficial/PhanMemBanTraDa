@@ -77,5 +77,19 @@ namespace AppQuanTraDa.Model
 
             DataProvider.ThucHien("usp_ChangeTableStatusToEmpty", parameters, true);
         }
+
+        public static bool AddTableFood(string tableName)
+        {
+            SqlParameter[] pars = new SqlParameter[1];
+            pars[0] = new SqlParameter("@Name", SqlDbType.NVarChar, 100);
+            pars[0].Value = tableName;
+
+            return DataProvider.ThucHien("usp_AddTalbeFood", pars, true);
+        }
+
+        public static bool DeleteTableFood(int id)
+        {
+            return DataProvider.ThucHien("delete from TableFood where Id = " + id, null, false);
+        }
     }
 }

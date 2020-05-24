@@ -14,14 +14,39 @@ namespace AppQuanTraDa
 {
     public partial class frmTableManager : Form
     {
-        public frmTableManager()
+        private Account logInAccout;
+
+        public Account LogInAccout
+        { 
+            get => logInAccout; 
+            set
+            {
+                logInAccout = value;
+                //ChangeAccount(logInAccout.Type);
+            }
+        }
+
+        public frmTableManager(Account acc)
         {
+            this.LogInAccout = acc;
             InitializeComponent();
             LoadTableList();
             LoadFoodList();
         }
 
         #region Methods
+        /*void ChangeAccount(int accountType)
+        {
+            if (accountType == 1)
+            {
+                adminToolStripMenuItem.Enabled = true;
+            }
+            else
+            { 
+                adminToolStripMenuItem.Enabled = false;
+            }
+        }*/
+
         private void LoadTableList()
         {
             flpTable.Controls.Clear();
@@ -93,7 +118,7 @@ namespace AppQuanTraDa
 
         private void thongTinCaNhanToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmAccountProfile f = new frmAccountProfile();
+            frmAccountProfile f = new frmAccountProfile(this.LogInAccout);
             this.Hide();
             f.ShowDialog();
             this.Show();

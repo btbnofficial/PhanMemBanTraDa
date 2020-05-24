@@ -37,7 +37,9 @@ namespace AppQuanTraDa
             string password = txtPassword.Text;
             if(Login(username,password))
             {
-                frmTableManager f = new frmTableManager();
+                AccountBusiness accountBusiness = new AccountBusiness();
+                Account logInAccount = accountBusiness.GetAccountByUsername(username);
+                frmTableManager f = new frmTableManager(logInAccount);
                 this.Hide();
                 f.ShowDialog();
                 this.Show();

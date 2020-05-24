@@ -10,3 +10,7 @@ D:\PhanMemBanTraDa-master\PhanMemBanTraDa-master\PhanMemBanTraDa\AppQuanTraDa\Ap
 D:\PhanMemBanTraDa-master\PhanMemBanTraDa-master\PhanMemBanTraDa\AppQuanTraDa\AppQuanTraDa\obj\Debug\AppQuanTraDa.frmTableManager.resources
 D:\PhanMemBanTraDa-master\PhanMemBanTraDa-master\PhanMemBanTraDa\AppQuanTraDa\AppQuanTraDa\obj\Debug\AppQuanTraDa.frmAccountProfile.resources
 D:\PhanMemBanTraDa-master\PhanMemBanTraDa-master\PhanMemBanTraDa\AppQuanTraDa\AppQuanTraDa\obj\Debug\AppQuanTraDa.frmAdmin.resources
+D:\PhanMemBanTraDa-master\PhanMemBanTraDa-master\PhanMemBanTraDa\AppQuanTraDa\AppQuanTraDa\obj\Debug\AppQuanTraDa.frmAddFood.resources
+D:\PhanMemBanTraDa-master\PhanMemBanTraDa-master\PhanMemBanTraDa\AppQuanTraDa\AppQuanTraDa\obj\Debug\AppQuanTraDa.frmFoodInfo.resources
+D:\PhanMemBanTraDa-master\PhanMemBanTraDa-master\PhanMemBanTraDa\AppQuanTraDa\AppQuanTraDa\obj\Debug\AppQuanTraDa.frmEditFood.resources
+D:\PhanMemBanTraDa-master\PhanMemBanTraDa-master\PhanMemBanTraDa\AppQuanTraDa\AppQuanTraDa\obj\Debug\AppQuanTraDa.frmAddTable.resources

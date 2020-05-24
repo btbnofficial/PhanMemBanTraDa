@@ -51,7 +51,7 @@ insert into dbo.Account(Username,Password,Type)
 values('staff1','staff1',0)
 select * from Account
 
-alter procedure usp_GetListAccount
+create procedure usp_GetListAccount
 as
 begin
 	Select Username,Type from Account
@@ -131,7 +131,7 @@ end
 
 
 --nếu đã tồn tại cái Bill của bàn này và chưa có món này, thì thêm mới BillDetail, còn nếu đã có món ăn + bàn này thì chỉ cộng thêm/giảm bớt món ăn
-alter procedure usp_AddBillDetail
+create procedure usp_AddBillDetail
 (
 	@BillId int,
 	@FoodId int,
@@ -176,7 +176,7 @@ end
 
 select * from TableFood
 
-alter procedure usp_ChangeTableStatus
+create procedure usp_ChangeTableStatus
 (
 	@TableFoodId int
 )
@@ -194,5 +194,56 @@ begin
 	update dbo.TableFood set TableFood.Status = N'Trống' where TableFood.Id = @TableFoodId
 end
 
-select * from Bill
+select * from Account
 
+select * from Account where Username = 'btbncsgo'
+
+select * from Food where Id = 1
+
+create procedure usp_DeleteFood
+(
+	@FoodId int
+)
+as
+begin
+	Delete from Food where Id = @FoodId
+end
+
+create procedure usp_AddFood
+(
+	@Name nvarchar(100),
+	@Price float
+)
+as
+begin
+	insert into dbo.Food values (@Name,@Price)
+end
+
+execute usp_AddFood N'Kem trang tien', 12000
+
+create procedure usp_EditFoodPrice
+(
+	@Price float,
+	@Id int
+)
+as
+begin
+	update dbo.Food set Price = @Price where Id = @Id
+end
+
+usp_EditFoodPrice 10500,1
+
+select * from TableFood
+
+create procedure usp_AddTalbeFood
+(
+	@Name nvarchar(100)
+)
+as
+begin
+	insert into dbo.TableFood(Status, Name) values (N'Trống',@Name)
+end
+
+select * from TableFood
+
+delete from TableFood where Id = 7

@@ -98,5 +98,16 @@ namespace AppQuanTraDa.Model
                 return false;
             }
         }
+
+        public Account GetAccountByUsername(string username)
+        {
+            DataTable dt = DataProvider.GetList("select * from Account where Username = '" + username + "'");
+
+            foreach(DataRow row in dt.Rows)
+            {
+                return new Account(row);
+            }
+            return null;
+        }
     }
 }
