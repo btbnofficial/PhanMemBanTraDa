@@ -135,12 +135,12 @@ namespace AppQuanTraDa
         private void btnAddFood_Click(object sender, EventArgs e)
         {
             TableFood tableFood = lsvBill.Tag as TableFood;
-
             int billId = BillBusiness.GetUncheckedBillIdFromTableId(tableFood.Id);
+
             int foodId = (cboFood.SelectedItem as Food).Id;
 
             //Neu Bill k co Bill nao o ban nay, them Bill moi
-            if(billId == -1)
+            if(billId==-1)
             {
                 BillBusiness.AddBill(tableFood.Id);
                 BillDetailBusiness.AddBillDetail(BillBusiness.GetMaxBillId(), foodId, (int)nmFoodCount.Value);
@@ -162,14 +162,15 @@ namespace AppQuanTraDa
             //Nếu có Bill thì hỏi là có thực sự muốn thanh toán
             TableFood tableFood = lsvBill.Tag as TableFood;
 
-            int billId = BillBusiness.GetUncheckedBillIdFromTableId(tableFood.Id);
+            Bill bill = BillBusiness.GetUncheckedBillFromTableId(tableFood.Id);
 
-            if(billId != -1)//Neu co Bill
+            if(bill.Id != -1)//Neu co Bill
             {
                 double totalPrice = Double.Parse(txtTotalPrice.Text) - Double.Parse(txtTotalPrice.Text) * (int)nmDiscount.Value / 100;
                 if (MessageBox.Show("Ban thuc su muon thanh toan cho " + tableFood.Name+" \n Tổng giá: "+totalPrice, "Thong bao", MessageBoxButtons.OKCancel) == DialogResult.OK)
                 {
-                    BillBusiness.CheckOut(billId);
+                    SavedBillBusiness.AddSavedBill(tableFood.Name, totalPrice, bill.DateCheckOut);
+                    BillBusiness.CheckOut(bill.Id);
                     TableFoodBusiness.ChangeTableStatusToEmpty(tableFood.Id);
                     ShowBill(tableFood.Id);
                     LoadTableList();

@@ -15,23 +15,43 @@ namespace AppQuanTraDa.Model
         /// </summary>
         /// <param name="tableFoodId"></param>
         /// <returns></returns>
-        public static int GetUncheckedBillIdFromTableId(int tableFoodId)
+        public static Bill GetUncheckedBillFromTableId(int tableFoodId)
         {
-            int billId = -1; ;
+            Bill bill = null;
             string query = "select * from Bill where TableId = " + tableFoodId + "and status = 0;";
             DataTable dt = DataProvider.GetList(query, null, false);
             if(dt.Rows.Count==0)
             {
-                return -1;
+                return null;
             }
             else
             {
                 foreach(DataRow r in dt.Rows)
                 {
-                    Bill objBill = new Bill(dt.Rows[0]);
-                    billId = objBill.Id;
+                    bill = new Bill(dt.Rows[0]);
                 }
-                return billId;
+                return bill;
+            }
+        }
+
+        public static int GetUncheckedBillIdFromTableId(int tableFoodId)
+        {
+            Bill bill = null;
+            int id = 0;
+            string query = "select * from Bill where TableId = " + tableFoodId + "and status = 0;";
+            DataTable dt = DataProvider.GetList(query, null, false);
+            if (dt.Rows.Count == 0)
+            {
+                return -1;
+            }
+            else
+            {
+                foreach (DataRow r in dt.Rows)
+                {
+                    bill = new Bill(dt.Rows[0]);
+                    id = bill.Id;
+                }
+            return id;
             }
         }
 

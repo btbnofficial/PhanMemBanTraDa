@@ -51,6 +51,17 @@
             this.btnDeleteFood = new System.Windows.Forms.Button();
             this.btnAddFood = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tpBill = new System.Windows.Forms.TabPage();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.dtgBill = new System.Windows.Forms.DataGridView();
+            this.dtpFromDate = new System.Windows.Forms.DateTimePicker();
+            this.dtpToDate = new System.Windows.Forms.DateTimePicker();
+            this.btnAnalyze = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtTotalMoney = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.tpAccount.SuspendLayout();
             this.panel11.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgAccount)).BeginInit();
@@ -64,6 +75,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtgFood)).BeginInit();
             this.panel3.SuspendLayout();
             this.tabControl1.SuspendLayout();
+            this.tpBill.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dtgBill)).BeginInit();
             this.SuspendLayout();
             // 
             // tpAccount
@@ -285,11 +300,114 @@
             this.tabControl1.Controls.Add(this.tpFood);
             this.tabControl1.Controls.Add(this.tpTable);
             this.tabControl1.Controls.Add(this.tpAccount);
+            this.tabControl1.Controls.Add(this.tpBill);
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1032, 543);
             this.tabControl1.TabIndex = 0;
+            // 
+            // tpBill
+            // 
+            this.tpBill.Controls.Add(this.panel2);
+            this.tpBill.Controls.Add(this.panel1);
+            this.tpBill.Location = new System.Drawing.Point(4, 22);
+            this.tpBill.Name = "tpBill";
+            this.tpBill.Padding = new System.Windows.Forms.Padding(3);
+            this.tpBill.Size = new System.Drawing.Size(1024, 517);
+            this.tpBill.TabIndex = 4;
+            this.tpBill.Text = "Doanh thu";
+            this.tpBill.UseVisualStyleBackColor = true;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.txtTotalMoney);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.btnAnalyze);
+            this.panel1.Controls.Add(this.dtpToDate);
+            this.panel1.Controls.Add(this.dtpFromDate);
+            this.panel1.Location = new System.Drawing.Point(6, 4);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1012, 59);
+            this.panel1.TabIndex = 0;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.dtgBill);
+            this.panel2.Location = new System.Drawing.Point(6, 69);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1012, 442);
+            this.panel2.TabIndex = 1;
+            // 
+            // dtgBill
+            // 
+            this.dtgBill.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dtgBill.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgBill.Location = new System.Drawing.Point(3, 3);
+            this.dtgBill.Name = "dtgBill";
+            this.dtgBill.Size = new System.Drawing.Size(1006, 436);
+            this.dtgBill.TabIndex = 0;
+            // 
+            // dtpFromDate
+            // 
+            this.dtpFromDate.Location = new System.Drawing.Point(71, 19);
+            this.dtpFromDate.Name = "dtpFromDate";
+            this.dtpFromDate.Size = new System.Drawing.Size(200, 20);
+            this.dtpFromDate.TabIndex = 0;
+            // 
+            // dtpToDate
+            // 
+            this.dtpToDate.Location = new System.Drawing.Point(344, 19);
+            this.dtpToDate.Name = "dtpToDate";
+            this.dtpToDate.Size = new System.Drawing.Size(200, 20);
+            this.dtpToDate.TabIndex = 1;
+            // 
+            // btnAnalyze
+            // 
+            this.btnAnalyze.Location = new System.Drawing.Point(846, 16);
+            this.btnAnalyze.Name = "btnAnalyze";
+            this.btnAnalyze.Size = new System.Drawing.Size(121, 23);
+            this.btnAnalyze.TabIndex = 2;
+            this.btnAnalyze.Text = "Thống kê doanh thu";
+            this.btnAnalyze.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(42, 21);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(23, 13);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Từ:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(313, 21);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(25, 13);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Tới:";
+            // 
+            // txtTotalMoney
+            // 
+            this.txtTotalMoney.Location = new System.Drawing.Point(674, 18);
+            this.txtTotalMoney.Name = "txtTotalMoney";
+            this.txtTotalMoney.ReadOnly = true;
+            this.txtTotalMoney.Size = new System.Drawing.Size(133, 20);
+            this.txtTotalMoney.TabIndex = 5;
+            this.txtTotalMoney.TextChanged += new System.EventHandler(this.txtTotalMoney_TextChanged);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(586, 21);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(82, 13);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Tổng doanh số:";
             // 
             // frmAdmin
             // 
@@ -313,6 +431,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.dtgFood)).EndInit();
             this.panel3.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
+            this.tpBill.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dtgBill)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -342,5 +465,16 @@
         private System.Windows.Forms.Button btnDeleteFood;
         private System.Windows.Forms.Button btnAddFood;
         private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tpBill;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.DataGridView dtgBill;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button btnAnalyze;
+        private System.Windows.Forms.DateTimePicker dtpToDate;
+        private System.Windows.Forms.DateTimePicker dtpFromDate;
+        private System.Windows.Forms.TextBox txtTotalMoney;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label3;
     }
 }

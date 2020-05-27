@@ -20,6 +20,7 @@ namespace AppQuanTraDa
             LoadAccountList();
             LoadTableFoodList();
             LoadFoodList();
+            LoadBillList();
         }
 
         public void LoadAccountList()
@@ -35,6 +36,11 @@ namespace AppQuanTraDa
         public void LoadFoodList()
         {
             dtgFood.DataSource = FoodBusiness.GetFoodList();
+        }
+
+        public void LoadBillList()
+        {
+            dtgBill.DataSource = SavedBillBusiness.GetListSavedBill();
         }
 
         private void btnAddFood_Click(object sender, EventArgs e)
@@ -128,6 +134,11 @@ namespace AppQuanTraDa
                     }
                 }
             }
+        }
+
+        private void txtTotalMoney_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

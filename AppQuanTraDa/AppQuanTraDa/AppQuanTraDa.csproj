@@ -105,6 +105,8 @@
     <Compile Include="Model\FoodBusiness.cs" />
     <Compile Include="Model\Menu.cs" />
     <Compile Include="Model\MenuBusiness.cs" />
+    <Compile Include="Model\SavedBill.cs" />
+    <Compile Include="Model\SavedBillBusiness.cs" />
     <Compile Include="Model\TableFood.cs" />
     <Compile Include="Model\TableFoodBusiness.cs" />
     <Compile Include="Program.cs" />

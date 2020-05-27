@@ -161,18 +161,7 @@ begin
 	end
 end
 
-alter procedure usp_CheckOutBill
-(
-	@BillId int
-)
-as
-begin
-	declare @tableId int;
-	select @tableId = TableFood.Id from TableFood, Bill where Bill.Id = @BillId and Bill.TableId = @tableId;
-	delete from BillDetail where BillDetail.BillId = @BillId;
-	delete from Bill where Id = @BillId;
-	
-end
+
 
 select * from TableFood
 
@@ -247,3 +236,58 @@ end
 select * from TableFood
 
 delete from TableFood where Id = 7
+
+--27052020
+
+alter procedure usp_CheckOutBill
+(
+	@BillId int
+)
+as
+begin
+	declare @tableId int;
+	declare @tableFoodName nvarchar(100);
+	declare @DateCheckOut Date;
+	declare @TotalPrice float;
+	select @tableId = TableFood.Id from TableFood, Bill where Bill.Id = @BillId and Bill.TableId = @tableId;
+	select @DateCheckOut = Bill.DateCheckOut from Bill;
+	select @tableFoodName = TableFood.Name from TableFood, Bill where Bill.Id = @BillId and Bill.TableId = @tableId;
+	declare @totalBillDetail int = 0;
+	while @totalBillDetail<30
+	begin
+		set @TotalPrice = Food.Price*BillDetail.count from BillDetail, Food
+	end;
+	
+	--Xoa Bill va BillDetail di va de ban ve trang thai trong
+	delete from BillDetail where BillDetail.BillId = @BillId;
+	delete from Bill where Id = @BillId;
+	
+end
+
+create table SavedBill
+(
+	Id int identity primary key,
+	TableName nvarchar(100),
+	TotalPrice float,
+	DateCheckOut Date
+)
+go
+
+select * from SavedBill;
+
+alter procedure usp_AddSavedBill
+(
+	@TableName nvarchar(100),
+	@TotalPrice float,
+	@DateCheckOut Date
+)
+as
+begin
+	insert into dbo.SavedBill(TableName, TotalPrice, DateCheckOut) values(@TableName,@TotalPrice,@DateCheckOut)
+end
+
+select * from Bill
+
+select * from Bill where Bill.TableId = 6
+
+Select * from SavedBill
