@@ -37,5 +37,20 @@ namespace AppQuanTraDa.Model
 
             DataProvider.ThucHien("usp_AddBillDetail", pars, true);
         }
+
+        public static List<BillDetail> GetListBillDetailFromBillId(int billId)
+        {
+            List<BillDetail> lst = new List<BillDetail>();
+
+            DataTable dt = DataProvider.GetList("select * from BillDetail where BillId = " + billId, null, false);
+
+            foreach(DataRow row in dt.Rows)
+            {
+                BillDetail objBillDetail = new BillDetail(row);
+                lst.Add(objBillDetail);
+            }
+
+            return lst;
+        }
     }
 }

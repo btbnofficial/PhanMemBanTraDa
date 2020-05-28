@@ -267,27 +267,31 @@ end
 create table SavedBill
 (
 	Id int identity primary key,
-	TableName nvarchar(100),
+	TableName nvarchar(100),count int,
 	TotalPrice float,
-	DateCheckOut Date
+	DateCheckOut Date,
+	FoodName nvarchar(100)
+	
 )
 go
 
-select * from SavedBill;
+select * from SavedBill where SavedBill.FoodName = N'Nước mía';
 
 alter procedure usp_AddSavedBill
 (
 	@TableName nvarchar(100),
+	@count int,
 	@TotalPrice float,
-	@DateCheckOut Date
+	@DateCheckOut Date,
+	@FoodName nvarchar(100)
 )
 as
 begin
-	insert into dbo.SavedBill(TableName, TotalPrice, DateCheckOut) values(@TableName,@TotalPrice,@DateCheckOut)
+	insert into dbo.SavedBill(TableName, count, TotalPrice, DateCheckOut,FoodName) values(@TableName, @count, @TotalPrice,@DateCheckOut,@FoodName)
 end
 
 select * from Bill
-
+select * from BillDetail where BillId = 38
 select * from Bill where Bill.TableId = 6
-
-Select * from SavedBill
+select Name from Food where Id = 1
+Select * from SavedBill where DateCheckOut >= '2020-05-01' and DateCheckOut <= '2020-05-27' and SavedBill.FoodName = N'Nước mía'

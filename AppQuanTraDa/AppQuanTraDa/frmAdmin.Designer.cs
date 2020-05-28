@@ -52,16 +52,20 @@
             this.btnAddFood = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tpBill = new System.Windows.Forms.TabPage();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dtgBill = new System.Windows.Forms.DataGridView();
-            this.dtpFromDate = new System.Windows.Forms.DateTimePicker();
-            this.dtpToDate = new System.Windows.Forms.DateTimePicker();
-            this.btnAnalyze = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtTotalMoney = new System.Windows.Forms.TextBox();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
+            this.txtTotalMoney = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnAnalyze = new System.Windows.Forms.Button();
+            this.dtpToDate = new System.Windows.Forms.DateTimePicker();
+            this.dtpFromDate = new System.Windows.Forms.DateTimePicker();
+            this.label4 = new System.Windows.Forms.Label();
+            this.cboFoodName = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtFoodCount = new System.Windows.Forms.TextBox();
             this.tpAccount.SuspendLayout();
             this.panel11.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgAccount)).BeginInit();
@@ -76,9 +80,9 @@
             this.panel3.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tpBill.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgBill)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tpAccount
@@ -319,20 +323,6 @@
             this.tpBill.Text = "Doanh thu";
             this.tpBill.UseVisualStyleBackColor = true;
             // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.txtTotalMoney);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.btnAnalyze);
-            this.panel1.Controls.Add(this.dtpToDate);
-            this.panel1.Controls.Add(this.dtpFromDate);
-            this.panel1.Location = new System.Drawing.Point(6, 4);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1012, 59);
-            this.panel1.TabIndex = 0;
-            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.dtgBill);
@@ -350,28 +340,50 @@
             this.dtgBill.Size = new System.Drawing.Size(1006, 436);
             this.dtgBill.TabIndex = 0;
             // 
-            // dtpFromDate
+            // panel1
             // 
-            this.dtpFromDate.Location = new System.Drawing.Point(71, 19);
-            this.dtpFromDate.Name = "dtpFromDate";
-            this.dtpFromDate.Size = new System.Drawing.Size(200, 20);
-            this.dtpFromDate.TabIndex = 0;
+            this.panel1.Controls.Add(this.txtFoodCount);
+            this.panel1.Controls.Add(this.label5);
+            this.panel1.Controls.Add(this.cboFoodName);
+            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.label3);
+            this.panel1.Controls.Add(this.txtTotalMoney);
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.btnAnalyze);
+            this.panel1.Controls.Add(this.dtpToDate);
+            this.panel1.Controls.Add(this.dtpFromDate);
+            this.panel1.Location = new System.Drawing.Point(6, 4);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1012, 59);
+            this.panel1.TabIndex = 0;
             // 
-            // dtpToDate
+            // label3
             // 
-            this.dtpToDate.Location = new System.Drawing.Point(344, 19);
-            this.dtpToDate.Name = "dtpToDate";
-            this.dtpToDate.Size = new System.Drawing.Size(200, 20);
-            this.dtpToDate.TabIndex = 1;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(645, 21);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(82, 13);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Tổng doanh số:";
             // 
-            // btnAnalyze
+            // txtTotalMoney
             // 
-            this.btnAnalyze.Location = new System.Drawing.Point(846, 16);
-            this.btnAnalyze.Name = "btnAnalyze";
-            this.btnAnalyze.Size = new System.Drawing.Size(121, 23);
-            this.btnAnalyze.TabIndex = 2;
-            this.btnAnalyze.Text = "Thống kê doanh thu";
-            this.btnAnalyze.UseVisualStyleBackColor = true;
+            this.txtTotalMoney.Location = new System.Drawing.Point(733, 18);
+            this.txtTotalMoney.Name = "txtTotalMoney";
+            this.txtTotalMoney.ReadOnly = true;
+            this.txtTotalMoney.Size = new System.Drawing.Size(95, 20);
+            this.txtTotalMoney.TabIndex = 5;
+            this.txtTotalMoney.TextChanged += new System.EventHandler(this.txtTotalMoney_TextChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(175, 21);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(25, 13);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Tới:";
             // 
             // label1
             // 
@@ -382,32 +394,67 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "Từ:";
             // 
-            // label2
+            // btnAnalyze
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(313, 21);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(25, 13);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Tới:";
+            this.btnAnalyze.Location = new System.Drawing.Point(846, 16);
+            this.btnAnalyze.Name = "btnAnalyze";
+            this.btnAnalyze.Size = new System.Drawing.Size(113, 23);
+            this.btnAnalyze.TabIndex = 2;
+            this.btnAnalyze.Text = "Thống kê doanh thu";
+            this.btnAnalyze.UseVisualStyleBackColor = true;
+            this.btnAnalyze.Click += new System.EventHandler(this.btnAnalyze_Click);
             // 
-            // txtTotalMoney
+            // dtpToDate
             // 
-            this.txtTotalMoney.Location = new System.Drawing.Point(674, 18);
-            this.txtTotalMoney.Name = "txtTotalMoney";
-            this.txtTotalMoney.ReadOnly = true;
-            this.txtTotalMoney.Size = new System.Drawing.Size(133, 20);
-            this.txtTotalMoney.TabIndex = 5;
-            this.txtTotalMoney.TextChanged += new System.EventHandler(this.txtTotalMoney_TextChanged);
+            this.dtpToDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpToDate.Location = new System.Drawing.Point(206, 19);
+            this.dtpToDate.Name = "dtpToDate";
+            this.dtpToDate.Size = new System.Drawing.Size(79, 20);
+            this.dtpToDate.TabIndex = 1;
+            this.dtpToDate.Value = new System.DateTime(2020, 5, 28, 0, 0, 0, 0);
             // 
-            // label3
+            // dtpFromDate
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(586, 21);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(82, 13);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Tổng doanh số:";
+            this.dtpFromDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpFromDate.Location = new System.Drawing.Point(71, 19);
+            this.dtpFromDate.Name = "dtpFromDate";
+            this.dtpFromDate.Size = new System.Drawing.Size(81, 20);
+            this.dtpFromDate.TabIndex = 0;
+            this.dtpFromDate.Value = new System.DateTime(2020, 5, 28, 0, 0, 0, 0);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(313, 21);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(52, 13);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "Tên món:";
+            // 
+            // cboFoodName
+            // 
+            this.cboFoodName.FormattingEnabled = true;
+            this.cboFoodName.Location = new System.Drawing.Point(371, 18);
+            this.cboFoodName.Name = "cboFoodName";
+            this.cboFoodName.Size = new System.Drawing.Size(160, 21);
+            this.cboFoodName.TabIndex = 8;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(546, 21);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(52, 13);
+            this.label5.TabIndex = 9;
+            this.label5.Text = "Số lượng:";
+            // 
+            // txtFoodCount
+            // 
+            this.txtFoodCount.Location = new System.Drawing.Point(604, 18);
+            this.txtFoodCount.Name = "txtFoodCount";
+            this.txtFoodCount.ReadOnly = true;
+            this.txtFoodCount.Size = new System.Drawing.Size(35, 20);
+            this.txtFoodCount.TabIndex = 10;
             // 
             // frmAdmin
             // 
@@ -432,10 +479,10 @@
             this.panel3.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
             this.tpBill.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtgBill)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -476,5 +523,9 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox cboFoodName;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox txtFoodCount;
+        private System.Windows.Forms.Label label5;
     }
 }

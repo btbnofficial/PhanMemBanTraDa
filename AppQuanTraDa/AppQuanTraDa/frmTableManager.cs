@@ -88,6 +88,7 @@ namespace AppQuanTraDa
                 totalPrice += menu.TotalPrice;
             }
             txtTotalPrice.Text = totalPrice.ToString();
+            
         }
 
         private void LoadFoodList()
@@ -169,7 +170,13 @@ namespace AppQuanTraDa
                 double totalPrice = Double.Parse(txtTotalPrice.Text) - Double.Parse(txtTotalPrice.Text) * (int)nmDiscount.Value / 100;
                 if (MessageBox.Show("Ban thuc su muon thanh toan cho " + tableFood.Name+" \n Tổng giá: "+totalPrice, "Thong bao", MessageBoxButtons.OKCancel) == DialogResult.OK)
                 {
-                    SavedBillBusiness.AddSavedBill(tableFood.Name, totalPrice, bill.DateCheckOut);
+                    List<BillDetail> lstBillDetail = BillDetailBusiness.GetListBillDetailFromBillId(bill.Id);
+                    foreach(BillDetail item in lstBillDetail)
+                    {
+                        Food objFood = FoodBusiness.GetFoodFromId(item.FoodId);
+                        double price = item.Count * objFood.Price;
+                        SavedBillBusiness.AddSavedBill(tableFood.Name,item.Count, price - price*(int)nmDiscount.Value/100, bill.DateCheckOut, FoodBusiness.GetFoodNameFromId(item.FoodId)) ;
+                    }
                     BillBusiness.CheckOut(bill.Id);
                     TableFoodBusiness.ChangeTableStatusToEmpty(tableFood.Id);
                     ShowBill(tableFood.Id);

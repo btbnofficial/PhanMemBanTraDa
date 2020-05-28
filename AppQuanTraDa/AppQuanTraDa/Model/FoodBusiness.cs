@@ -36,6 +36,18 @@ namespace AppQuanTraDa.Model
             return null;
         }
 
+        public static String GetFoodNameFromId(int foodId)
+        {
+            DataTable dt = DataProvider.GetList("Select * from Food where Id = " + foodId, null, false);
+
+            foreach (DataRow row in dt.Rows)
+            {
+                Food objFood = new Food(row);
+                return objFood.Name;
+            }
+            return null;
+        }
+
         public static bool DeleteFood(int foodId)
         {
             SqlParameter[] pars = new SqlParameter[1];

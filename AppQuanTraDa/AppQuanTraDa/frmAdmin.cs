@@ -21,8 +21,10 @@ namespace AppQuanTraDa
             LoadTableFoodList();
             LoadFoodList();
             LoadBillList();
+            LoadFoodListToComboBox();
         }
 
+        #region Methods
         public void LoadAccountList()
         {
             dtgAccount.DataSource = AccountBusiness.LayDanhSachAccount();
@@ -40,9 +42,21 @@ namespace AppQuanTraDa
 
         public void LoadBillList()
         {
-            dtgBill.DataSource = SavedBillBusiness.GetListSavedBill();
+            DateTime now = DateTime.Now;
+            var startDate = new DateTime(now.Year, now.Month, 1);
+            dtpFromDate.Value = startDate;
+            dtgBill.DataSource = SavedBillBusiness.GetListSavedBill(startDate,now);
         }
 
+        public void LoadFoodListToComboBox()
+        {
+            cboFoodName.DataSource = FoodBusiness.GetFoodList();
+            cboFoodName.DisplayMember = "Name";
+
+        }
+
+        #endregion
+        #region Events
         private void btnAddFood_Click(object sender, EventArgs e)
         {
             frmAddFood f = new frmAddFood();
@@ -140,5 +154,25 @@ namespace AppQuanTraDa
         {
 
         }
+
+        private void btnAnalyze_Click(object sender, EventArgs e)
+        {
+            Food food = (Food)cboFoodName.SelectedItem;
+            DateTime fromDate = dtpFromDate.Value;
+            DateTime toDate = dtpToDate.Value;
+            dtgBill.DataSource = SavedBillBusiness.GetListSavedBillFromFoodName(fromDate, toDate, food.Name);
+            List<SavedBill> lstSavedBill = SavedBillBusiness.GetListSavedBillFromFoodName(fromDate, toDate, food.Name);
+            int count = 0;
+            double totalPrice = 0;
+            foreach(SavedBill item in lstSavedBill)
+            {
+                count += item.Count;
+                totalPrice += item.TotalPrice;
+            }
+            txtFoodCount.Text = count.ToString();
+            txtTotalMoney.Text = totalPrice.ToString();
+        }
+
+        #endregion
     }
 }
