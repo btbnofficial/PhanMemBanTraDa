@@ -54,5 +54,10 @@ namespace AppQuanTraDa
         {
             return AccountBusiness.Login(username, password);
         }
+
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

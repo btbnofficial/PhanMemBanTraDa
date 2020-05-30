@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAddFood));
             this.label1 = new System.Windows.Forms.Label();
             this.txtFoodName = new System.Windows.Forms.TextBox();
             this.txtFoodPrice = new System.Windows.Forms.TextBox();
@@ -99,6 +100,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtFoodName);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmAddFood";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmAddFood";

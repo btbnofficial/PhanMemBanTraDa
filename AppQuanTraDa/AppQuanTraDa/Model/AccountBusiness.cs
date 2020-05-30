@@ -109,5 +109,18 @@ namespace AppQuanTraDa.Model
             }
             return null;
         }
+
+        public static void ChangeAccountPassword(string username, string password)
+        {
+            SqlParameter[] pars = new SqlParameter[2];
+
+            pars[0] = new SqlParameter("@Username", SqlDbType.VarChar, 100);
+            pars[0].Value = username;
+
+            pars[1] = new SqlParameter("@NewPassword", SqlDbType.VarChar, 100);
+            pars[1].Value = password;
+
+            DataProvider.ThucHien("usp_ChangeAccountPassWord", pars, true);
+        }
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAccountProfile));
             this.txtAccount = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtReEnterNewPassword = new System.Windows.Forms.TextBox();
@@ -120,6 +121,7 @@
             this.btnUpdate.TabIndex = 17;
             this.btnUpdate.Text = "Cap nhat";
             this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.Click += new System.EventHandler(this.BtnUpdate_Click);
             // 
             // btnExit
             // 
@@ -149,6 +151,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtAccount);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmAccountProfile";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Thong tin ca nhan";

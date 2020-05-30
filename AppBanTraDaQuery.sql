@@ -239,7 +239,7 @@ delete from TableFood where Id = 7
 
 --27052020
 
-alter procedure usp_CheckOutBill
+create procedure usp_CheckOutBill
 (
 	@BillId int
 )
@@ -277,7 +277,7 @@ go
 
 select * from SavedBill where SavedBill.FoodName = N'Nước mía';
 
-alter procedure usp_AddSavedBill
+create procedure usp_AddSavedBill
 (
 	@TableName nvarchar(100),
 	@count int,
@@ -295,3 +295,19 @@ select * from BillDetail where BillId = 38
 select * from Bill where Bill.TableId = 6
 select Name from Food where Id = 1
 Select * from SavedBill where DateCheckOut >= '2020-05-01' and DateCheckOut <= '2020-05-27' and SavedBill.FoodName = N'Nước mía'
+
+--30052020
+use AppBanTraDa
+select * from Account
+
+create procedure usp_ChangeAccountPassWord
+(
+	@Username varchar(100),
+	@NewPassword varchar(100)
+)
+as
+begin
+	Update dbo.Account set Password = @NewPassword where Username = @Username
+end
+go
+

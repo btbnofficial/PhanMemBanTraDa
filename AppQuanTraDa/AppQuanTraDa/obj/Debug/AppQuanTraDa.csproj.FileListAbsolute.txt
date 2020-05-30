@@ -14,3 +14,36 @@ D:\PhanMemBanTraDa-master\PhanMemBanTraDa-master\PhanMemBanTraDa\AppQuanTraDa\Ap
 D:\PhanMemBanTraDa-master\PhanMemBanTraDa-master\PhanMemBanTraDa\AppQuanTraDa\AppQuanTraDa\obj\Debug\AppQuanTraDa.frmFoodInfo.resources
 D:\PhanMemBanTraDa-master\PhanMemBanTraDa-master\PhanMemBanTraDa\AppQuanTraDa\AppQuanTraDa\obj\Debug\AppQuanTraDa.frmEditFood.resources
 D:\PhanMemBanTraDa-master\PhanMemBanTraDa-master\PhanMemBanTraDa\AppQuanTraDa\AppQuanTraDa\obj\Debug\AppQuanTraDa.frmAddTable.resources
+D:\Downloads\PhanMemBanTraDa-master (1)\PhanMemBanTraDa-master\AppQuanTraDa\AppQuanTraDa\bin\Debug\AppQuanTraDa.exe.config
+D:\Downloads\PhanMemBanTraDa-master (1)\PhanMemBanTraDa-master\AppQuanTraDa\AppQuanTraDa\bin\Debug\AppQuanTraDa.exe
+D:\Downloads\PhanMemBanTraDa-master (1)\PhanMemBanTraDa-master\AppQuanTraDa\AppQuanTraDa\bin\Debug\AppQuanTraDa.pdb
+D:\Downloads\PhanMemBanTraDa-master (1)\PhanMemBanTraDa-master\AppQuanTraDa\AppQuanTraDa\obj\Debug\AppQuanTraDa.csprojAssemblyReference.cache
+D:\Downloads\PhanMemBanTraDa-master (1)\PhanMemBanTraDa-master\AppQuanTraDa\AppQuanTraDa\obj\Debug\AppQuanTraDa.frmAccountProfile.resources
+D:\Downloads\PhanMemBanTraDa-master (1)\PhanMemBanTraDa-master\AppQuanTraDa\AppQuanTraDa\obj\Debug\AppQuanTraDa.frmAddFood.resources
+D:\Downloads\PhanMemBanTraDa-master (1)\PhanMemBanTraDa-master\AppQuanTraDa\AppQuanTraDa\obj\Debug\AppQuanTraDa.frmAddTable.resources
+D:\Downloads\PhanMemBanTraDa-master (1)\PhanMemBanTraDa-master\AppQuanTraDa\AppQuanTraDa\obj\Debug\AppQuanTraDa.frmAdmin.resources
+D:\Downloads\PhanMemBanTraDa-master (1)\PhanMemBanTraDa-master\AppQuanTraDa\AppQuanTraDa\obj\Debug\AppQuanTraDa.frmEditFood.resources
+D:\Downloads\PhanMemBanTraDa-master (1)\PhanMemBanTraDa-master\AppQuanTraDa\AppQuanTraDa\obj\Debug\AppQuanTraDa.frmFoodInfo.resources
+D:\Downloads\PhanMemBanTraDa-master (1)\PhanMemBanTraDa-master\AppQuanTraDa\AppQuanTraDa\obj\Debug\AppQuanTraDa.frmLogin.resources
+D:\Downloads\PhanMemBanTraDa-master (1)\PhanMemBanTraDa-master\AppQuanTraDa\AppQuanTraDa\obj\Debug\AppQuanTraDa.frmTableManager.resources
+D:\Downloads\PhanMemBanTraDa-master (1)\PhanMemBanTraDa-master\AppQuanTraDa\AppQuanTraDa\obj\Debug\AppQuanTraDa.Properties.Resources.resources
+D:\Downloads\PhanMemBanTraDa-master (1)\PhanMemBanTraDa-master\AppQuanTraDa\AppQuanTraDa\obj\Debug\AppQuanTraDa.csproj.GenerateResource.cache
+D:\Downloads\PhanMemBanTraDa-master (1)\PhanMemBanTraDa-master\AppQuanTraDa\AppQuanTraDa\obj\Debug\AppQuanTraDa.csproj.CoreCompileInputs.cache
+D:\Downloads\PhanMemBanTraDa-master (1)\PhanMemBanTraDa-master\AppQuanTraDa\AppQuanTraDa\obj\Debug\AppQuanTraDa.exe
+D:\Downloads\PhanMemBanTraDa-master (1)\PhanMemBanTraDa-master\AppQuanTraDa\AppQuanTraDa\obj\Debug\AppQuanTraDa.pdb
+C:\Users\btbno\Desktop\PhanMemBanTraDa_Complete_Edition\PhanMemBanTraDa_Complete_Edition\AppQuanTraDa\AppQuanTraDa\bin\Debug\AppQuanTraDa.exe.config
+C:\Users\btbno\Desktop\PhanMemBanTraDa_Complete_Edition\PhanMemBanTraDa_Complete_Edition\AppQuanTraDa\AppQuanTraDa\bin\Debug\AppQuanTraDa.exe
+C:\Users\btbno\Desktop\PhanMemBanTraDa_Complete_Edition\PhanMemBanTraDa_Complete_Edition\AppQuanTraDa\AppQuanTraDa\bin\Debug\AppQuanTraDa.pdb
+C:\Users\btbno\Desktop\PhanMemBanTraDa_Complete_Edition\PhanMemBanTraDa_Complete_Edition\AppQuanTraDa\AppQuanTraDa\obj\Debug\AppQuanTraDa.csprojAssemblyReference.cache
+C:\Users\btbno\Desktop\PhanMemBanTraDa_Complete_Edition\PhanMemBanTraDa_Complete_Edition\AppQuanTraDa\AppQuanTraDa\obj\Debug\AppQuanTraDa.frmAccountProfile.resources
+C:\Users\btbno\Desktop\PhanMemBanTraDa_Complete_Edition\PhanMemBanTraDa_Complete_Edition\AppQuanTraDa\AppQuanTraDa\obj\Debug\AppQuanTraDa.frmAddFood.resources
+C:\Users\btbno\Desktop\PhanMemBanTraDa_Complete_Edition\PhanMemBanTraDa_Complete_Edition\AppQuanTraDa\AppQuanTraDa\obj\Debug\AppQuanTraDa.frmAddTable.resources
+C:\Users\btbno\Desktop\PhanMemBanTraDa_Complete_Edition\PhanMemBanTraDa_Complete_Edition\AppQuanTraDa\AppQuanTraDa\obj\Debug\AppQuanTraDa.frmAdmin.resources
+C:\Users\btbno\Desktop\PhanMemBanTraDa_Complete_Edition\PhanMemBanTraDa_Complete_Edition\AppQuanTraDa\AppQuanTraDa\obj\Debug\AppQuanTraDa.frmEditFood.resources
+C:\Users\btbno\Desktop\PhanMemBanTraDa_Complete_Edition\PhanMemBanTraDa_Complete_Edition\AppQuanTraDa\AppQuanTraDa\obj\Debug\AppQuanTraDa.frmFoodInfo.resources
+C:\Users\btbno\Desktop\PhanMemBanTraDa_Complete_Edition\PhanMemBanTraDa_Complete_Edition\AppQuanTraDa\AppQuanTraDa\obj\Debug\AppQuanTraDa.frmLogin.resources
+C:\Users\btbno\Desktop\PhanMemBanTraDa_Complete_Edition\PhanMemBanTraDa_Complete_Edition\AppQuanTraDa\AppQuanTraDa\obj\Debug\AppQuanTraDa.frmTableManager.resources
+C:\Users\btbno\Desktop\PhanMemBanTraDa_Complete_Edition\PhanMemBanTraDa_Complete_Edition\AppQuanTraDa\AppQuanTraDa\obj\Debug\AppQuanTraDa.Properties.Resources.resources
+C:\Users\btbno\Desktop\PhanMemBanTraDa_Complete_Edition\PhanMemBanTraDa_Complete_Edition\AppQuanTraDa\AppQuanTraDa\obj\Debug\AppQuanTraDa.csproj.GenerateResource.cache
+C:\Users\btbno\Desktop\PhanMemBanTraDa_Complete_Edition\PhanMemBanTraDa_Complete_Edition\AppQuanTraDa\AppQuanTraDa\obj\Debug\AppQuanTraDa.exe
+C:\Users\btbno\Desktop\PhanMemBanTraDa_Complete_Edition\PhanMemBanTraDa_Complete_Edition\AppQuanTraDa\AppQuanTraDa\obj\Debug\AppQuanTraDa.pdb

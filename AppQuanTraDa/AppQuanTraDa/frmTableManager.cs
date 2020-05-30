@@ -22,7 +22,7 @@ namespace AppQuanTraDa
             set
             {
                 logInAccout = value;
-                //ChangeAccount(logInAccout.Type);
+                //(logInAccout.Type);
             }
         }
 
@@ -32,10 +32,11 @@ namespace AppQuanTraDa
             InitializeComponent();
             LoadTableList();
             LoadFoodList();
+            ChangeAccount(LogInAccout.Type);
         }
 
         #region Methods
-        /*void ChangeAccount(int accountType)
+        void ChangeAccount(int accountType)
         {
             if (accountType == 1)
             {
@@ -45,7 +46,7 @@ namespace AppQuanTraDa
             { 
                 adminToolStripMenuItem.Enabled = false;
             }
-        }*/
+        }
 
         private void LoadTableList()
         {
@@ -58,13 +59,14 @@ namespace AppQuanTraDa
                 Button btn = new Button() { Width = 125, Height = 125 };
                 btn.Text = tableFood.Name + "\n" + tableFood.Status;
                 btn.Tag = tableFood; //Lưu object tableFood thành btn 
+                btn.ForeColor = Color.White;
                 if(tableFood.Status !="Trống")
                 {
-                    btn.BackColor = Color.Cyan;
+                    btn.BackColor = Color.DimGray;
                 }
                 else
                 {
-                    btn.BackColor = Color.WhiteSmoke;
+                    btn.BackColor = Color.DarkGray;
                 }
                 btn.Click += btn_Click;
                 flpTable.Controls.Add(btn);
@@ -165,27 +167,42 @@ namespace AppQuanTraDa
 
             Bill bill = BillBusiness.GetUncheckedBillFromTableId(tableFood.Id);
 
-            if(bill.Id != -1)//Neu co Bill
+            if(tableFood==null)
             {
-                double totalPrice = Double.Parse(txtTotalPrice.Text) - Double.Parse(txtTotalPrice.Text) * (int)nmDiscount.Value / 100;
-                if (MessageBox.Show("Ban thuc su muon thanh toan cho " + tableFood.Name+" \n Tổng giá: "+totalPrice, "Thong bao", MessageBoxButtons.OKCancel) == DialogResult.OK)
+                MessageBox.Show("Ban chua chon ban de thanh toan!", "Thong bao");
+            }
+            else
+            {
+                if (bill.Id != -1)//Neu co Bill
                 {
-                    List<BillDetail> lstBillDetail = BillDetailBusiness.GetListBillDetailFromBillId(bill.Id);
-                    foreach(BillDetail item in lstBillDetail)
+                    double totalPrice = Double.Parse(txtTotalPrice.Text) - Double.Parse(txtTotalPrice.Text) * (int)nmDiscount.Value / 100;
+                    if (MessageBox.Show("Ban thuc su muon thanh toan cho " + tableFood.Name + " \n Tổng giá: " + totalPrice, "Thong bao", MessageBoxButtons.OKCancel) == DialogResult.OK)
                     {
-                        Food objFood = FoodBusiness.GetFoodFromId(item.FoodId);
-                        double price = item.Count * objFood.Price;
-                        SavedBillBusiness.AddSavedBill(tableFood.Name,item.Count, price - price*(int)nmDiscount.Value/100, bill.DateCheckOut, FoodBusiness.GetFoodNameFromId(item.FoodId)) ;
+                        List<BillDetail> lstBillDetail = BillDetailBusiness.GetListBillDetailFromBillId(bill.Id);
+                        foreach (BillDetail item in lstBillDetail)
+                        {
+                            Food objFood = FoodBusiness.GetFoodFromId(item.FoodId);
+                            double price = item.Count * objFood.Price;
+                            SavedBillBusiness.AddSavedBill(tableFood.Name, item.Count, price - price * (int)nmDiscount.Value / 100, bill.DateCheckOut, FoodBusiness.GetFoodNameFromId(item.FoodId));
+                        }
+                        BillBusiness.CheckOut(bill.Id);
+                        TableFoodBusiness.ChangeTableStatusToEmpty(tableFood.Id);
+                        ShowBill(tableFood.Id);
+                        LoadTableList();
                     }
-                    BillBusiness.CheckOut(bill.Id);
-                    TableFoodBusiness.ChangeTableStatusToEmpty(tableFood.Id);
-                    ShowBill(tableFood.Id);
-                    LoadTableList();
                 }
             }
+            //else if(bill == null)
+            //{
+            //    MessageBox.Show("Ban nay khong co gi de thanh toan!", "Thong bao");
+            //}
         }
+
         #endregion
 
-        
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

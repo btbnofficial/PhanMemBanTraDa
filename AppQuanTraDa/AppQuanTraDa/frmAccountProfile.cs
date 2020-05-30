@@ -21,16 +21,16 @@ namespace AppQuanTraDa
             set
             {
                 logInAccout = value;
-                ChangeAccount(logInAccout);
             }
         }
         public frmAccountProfile(Account acc)
         {
-            LogInAccout = acc;
+            this.LogInAccout = acc;
             InitializeComponent();
+            ShowInfo(this.LogInAccout);
         }
 
-        private void ChangeAccount(Account acc)
+        private void ShowInfo(Account acc)
         {
             txtAccount.Text = LogInAccout.Username;
         }
@@ -38,6 +38,33 @@ namespace AppQuanTraDa
         private void btnExit_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void BtnUpdate_Click(object sender, EventArgs e)
+        {
+            string username = txtAccount.Text;
+            string password = txtPassword.Text;
+            string newPassword = txtNewPassword.Text;
+            string reEnterNewPassword = txtReEnterNewPassword.Text;
+
+            if(newPassword!=reEnterNewPassword && !String.IsNullOrEmpty(newPassword))
+            {
+                MessageBox.Show("Mat khau moi va mat khau moi nhap lai khong giong nhau", "Alert");
+            }
+            else
+            {
+                if(this.LogInAccout.Password!=password)
+                {
+                    MessageBox.Show("Sai mat khau!", "Thong bao");
+                }
+                else
+                {
+                    AccountBusiness.ChangeAccountPassword(username, newPassword);
+                    MessageBox.Show("Doi mat khau thanh cong!", "Thong bao");
+                    this.Close();
+                }
+            }
+
         }
     }
 }
